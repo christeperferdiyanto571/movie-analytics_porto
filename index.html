@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Success Prediction - Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Portofolio.<span>AI</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#problem">Latar Belakang</a></li>
+            <li><a href="#analysis">Eksplorasi</a></li>
+            <li><a href="#model">Machine Learning</a></li>
+        </ul>
+        <a href="https://github.com" target="_blank" class="btn-primary">GitHub Code</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <span class="badge">Data Science Case Study</span>
+            <h1>Movie Analytics & <br><span class="gradient-text">Success Prediction</span></h1>
+            <p>Menganalisis lebih dari 45.000 film untuk menemukan pola keuntungan tersembunyi, dan membangun model Machine Learning cerdas untuk memprediksi probabilitas kesuksesan finansial sebuah film.</p>
+            <div class="hero-buttons">
+                <a href="#analysis" class="btn-primary">Lihat Analisis</a>
+                <a href="#model" class="btn-secondary">Detail Model</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="glass-panel">
+                <img src="assets/hero_bg.png" alt="Data Science Hero Image">
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section dark-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latar Belakang Masalah</h2>
+                <p>Mengapa analisis ini penting di industri perfilman?</p>
+            </div>
+            <div class="grid-2">
+                <div class="text-content">
+                    <h3>Risiko Tinggi dalam Pembuatan Film</h3>
+                    <p>Banyak studio film yang menginvestasikan puluhan juta dolar namun berakhir dengan kerugian besar (flop). Memahami faktor apa saja yang mempengaruhi penerimaan penonton dan kesuksesan finansial sangat krusial sebelum tahap produksi.</p>
+                    <ul class="feature-list">
+                        <li><strong>45.000+</strong> Data film dianalisis secara historis.</li>
+                        <li><strong>Feature Engineering:</strong> Ekstraksi insight seperti rasio durasi vs profit.</li>
+                        <li><strong>Prediksi Rating:</strong> Mengantisipasi apakah film akan sukses secara review.</li>
+                    </ul>
+                </div>
+                <div class="card-glass">
+                    <h4>Goal Utama</h4>
+                    <p class="highlight-text">"Membangun model yang dapat memprediksi tingkat rating sebuah film berdasarkan budget, durasi, dan popularitas, dengan memanfaatkan teknik Machine Learning modern."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Eksplorasi Data (EDA)</h2>
+                <p>Menemukan pola keuntungan dari hasil analisa dataset historis.</p>
+            </div>
+
+            <!-- Insight 1 -->
+            <div class="grid-2 reverse">
+                <div class="image-content">
+                    <img src="assets/profit_hist.png" alt="Profit Distribution" class="floating-img" onerror="this.src='assets/dashboard_chart.png'">
+                </div>
+                <div class="text-content">
+                    <h3>Distribusi Keuntungan (Profit)</h3>
+                    <p>Melihat sekilas bagaimana mayoritas film memperoleh keuntungan di Box Office.</p>
+                    <div class="insight-box">
+                        <div class="icon">💰</div>
+                        <div>
+                            <h4>Sangat Curam & Positif</h4>
+                            <p>Mayoritas film memusat pada area keuntungan yang moderat, namun terdapat beberapa titik pencilan (outliers) yang mendulang sukses sangat masif. Histogram diolah menggunakan bins=100 untuk melihat lebih rinci distribusinya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insight 2 -->
+            <div class="grid-2" style="margin-top: 80px;">
+                <div class="text-content">
+                    <h3>Korelasi Durasi & Keuntungan</h3>
+                    <p>Apakah film yang lebih panjang pasti untung?</p>
+                    <div class="insight-box">
+                        <div class="icon">⏱️</div>
+                        <div>
+                            <h4>Rentang Waktu Ideal (Runtime)</h4>
+                            <p>Berdasarkan grafik sebaran (scatter plot), sebagian besar film yang sangat menguntungkan terkonsentrasi pada durasi 90 hingga 150 menit. Film berdurasi ekstrem panjang mulai kehilangan traksi keuntungan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="assets/runtime_profit.png" alt="Runtime vs Profit" class="floating-img" onerror="this.src='assets/dashboard_chart.png'">
+                </div>
+            </div>
+
+            <!-- Insight 3 -->
+            <div class="grid-2 reverse" style="margin-top: 80px;">
+                <div class="image-content">
+                    <img src="assets/good_movies_pie.png" alt="Good Movies Ratio" class="floating-img" onerror="this.src='assets/dashboard_chart.png'">
+                </div>
+                <div class="text-content">
+                    <h3>Proporsi Film Berkualitas</h3>
+                    <p>Pembagian data target untuk pemodelan Machine Learning.</p>
+                    <div class="insight-box">
+                        <div class="icon">⭐</div>
+                        <div>
+                            <h4>Rasio Kesuksesan (Rating >= 3)</h4>
+                            <p>Pie chart menunjukkan proporsi dataset antara film yang memuaskan dan yang mengecewakan. Ini menjadi <em>ground truth</em> (label y) yang akan kita klasifikasikan menggunakan Machine Learning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Analytics Section -->
+    <section id="advanced-analysis" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Analisis Tingkat Lanjut (Advanced Insights)</h2>
+                <p>Menggali lebih dalam pola industri film yang jarang diketahui.</p>
+            </div>
+
+            <!-- Insight 4: Time Series -->
+            <div class="grid-2">
+                <div class="text-content">
+                    <h3>Evolusi Industri Film Lintas Dekade</h3>
+                    <p>Bagaimana pergerakan biaya pembuatan film dan margin keuntungannya berevolusi secara global selama 40 tahun terakhir?</p>
+                    <div class="insight-box">
+                        <div class="icon">📈</div>
+                        <div>
+                            <h4>Tren Inflasi & Revenue (1980 - 2020)</h4>
+                            <p>Berdasarkan grafik deret waktu (Time-Series) ini, terlihat bahwa budget produksi mengalami lonjakan yang cukup tajam sejak awal 2000-an. Namun, pendapatan (revenue) juga ikut meroket menembus rekor baru.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="assets/time_series.png" alt="Time Series Evolution" class="floating-img" onerror="this.src='assets/dashboard_chart.png'">
+                </div>
+            </div>
+
+            <!-- Insight 5: ROI by Genre -->
+            <div class="grid-2 reverse" style="margin-top: 80px;">
+                <div class="image-content">
+                    <img src="assets/genre_roi.png" alt="Top 10 Genre ROI" class="floating-img" onerror="this.src='assets/dashboard_chart.png'">
+                </div>
+                <div class="text-content">
+                    <h3>Mitos vs Realita Genre Film</h3>
+                    <p>Membongkar genre mana yang paling "cuan" bagi para investor dan produser.</p>
+                    <div class="insight-box">
+                        <div class="icon">🎭</div>
+                        <div>
+                            <h4>Top 10 Genre Paling Menguntungkan (% ROI)</h4>
+                            <p>Data membuktikan bahwa genre yang jarang diduga seperti Horor atau Animasi seringkali memiliki persentase balik modal (ROI) paling tinggi! Film aksi (Action) berbudget raksasa terkadang punya margin profit tipis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommender System Card -->
+            <div class="card-glass" style="margin-top: 80px; text-align: center;">
+                <h4 style="font-size: 1.5rem;">Pengembangan Sistem Rekomendasi 🤖</h4>
+                <p class="highlight-text" style="font-size: 1.1rem; color: var(--text-primary); margin-top: 15px;">Selain memprediksi rating dan mengeksplorasi tren profit, proyek ini dilengkapi dengan model <strong>Collaborative Filtering Recommender System</strong> (mirip algoritma <em>Netflix</em>) yang dibangun di atas <em>User-Item Interaction Matrix</em>. Sistem ini dapat menganalisa riwayat pengguna untuk merekomendasikan 5 film terbaru yang paling sesuai dengan selera personal mereka.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Learning Section -->
+    <section id="model" class="section dark-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Implementasi Machine Learning</h2>
+                <p>Membentuk otak prediksi berdasarkan data historis.</p>
+            </div>
+            
+            <div class="model-cards">
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Data Preprocessing</h3>
+                    <p>Mencegah <em>data leakage</em> dengan melakukan normalisasi menggunakan <strong>MinMaxScaler</strong> secara murni pada <em>training set</em> lalu ditransformasikan ke test set.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Pemodelan KNN</h3>
+                    <p>Memanfaatkan algoritma <strong>K-Nearest Neighbors</strong> yang telah dieksplorasi beserta dengan Decision Tree dan Logistic Regression.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Evaluasi Kinerja</h3>
+                    <p>Menggunakan matrik komprehensif termasuk <em>Precision, Recall, F1-Score</em>, <em>Confusion Matrix</em>, dan kurva AUC-ROC.</p>
+                </div>
+            </div>
+
+            <div class="conclusion-box">
+                <h3>Hasil Akhir Analisis</h3>
+                <p>Berdasarkan visualisasi dan pelatihan model, metrik budget dan runtime sebelum perilisan memiliki kekuatan prediktif. Model klasifikasi terbukti sanggup memberikan proyeksi yang membantu Produser meminimalisir kegagalan investasi.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p></p>
+        </div>
+    </footer>
+</body>
+</html>
